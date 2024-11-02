@@ -12,7 +12,7 @@ function PokemonList() {
     const[nextUrl,setNextUrl]=useState('');
     const[prevUrl,setPrevUrl]=useState('');
     
-    async function downloadPokemons() {
+    async function downloadPokemon() {
         setIsLoading(true)
         try {
             const response = await axios.get(pokedexUrl); // This downloads list of 20 Pokémon
@@ -48,7 +48,7 @@ function PokemonList() {
     }
 
     useEffect(() => {
-        downloadPokemons();
+        downloadPokemon();
     }, [pokedexUrl]);
 
     return (
@@ -56,7 +56,7 @@ function PokemonList() {
             <div>Pokemon List</div>
             <div className="pokemon-wrapper">
             {isLoading ? 'Loading...' : 
-                pokemonList.map((p) => <Pokemon name={p.name} image={p.image} key={p.id} />)
+                pokemonList.map((p) => <Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)
             }
             </div>
             <div className="controls">
