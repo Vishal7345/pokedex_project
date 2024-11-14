@@ -54,12 +54,18 @@ setPokemonList(pokeListResult)
 return(
 
 <div className="pokemon-list-wrapper">  
-<div>pokemon List</div>
+<div className="pokemon-wrapper">
 {(isloading)? 'isloading':
 
- pokemonList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id}/>)
+pokemonList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id}/>)
 
 }
+</div>
+<div className="controls">
+    <button>Prev</button>
+    <button>Next</button>
+
+</div>
 </div>
 
 )
